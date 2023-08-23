@@ -1,8 +1,13 @@
 import pandas as pd
-import requests
 from datetime import datetime
-import calendar
 import streamlit as st 
+
+
+st.set_page_config(page_title="Dashboard de Ventas",
+                    page_icon= "🍃",
+                    layout="wide")
+
+
 
 ############# LECTURA CSV FORMULARIO
 sheet_id = '1JcBYuaxBlGmuHVyi7FSaKChs8a49yeWWLA6SeZOEpXk'
