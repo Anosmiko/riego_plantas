@@ -49,21 +49,28 @@ def utima_accion(str_accion, key):
     filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df[str_accion] == "Si")]
     
     primera_fila = filtered_df.sort_values(by="Fecha").head(1)
-    ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
-    ultima_fecha = ultima_fecha.date()
     
-    mes = ultima_fecha.month
-    dia = ultima_fecha.day
-    
-    
-    # Get the Spanish day and month names
-    spanish_day_name = spanish_days.get(ultima_fecha.weekday() + 1)
-    spanish_month_name = spanish_months.get(mes)
-    
-    dias_desde_ult_riego = (hoy - ultima_fecha).days
-    
-    st.write(f"El ultimo {str_accion} de la {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
+    try:
+        ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
+        
+        ultima_fecha = ultima_fecha.date()
+        
+        mes = ultima_fecha.month
+        dia = ultima_fecha.day
+        
+        
+        # Get the Spanish day and month names
+        spanish_day_name = spanish_days.get(ultima_fecha.weekday() + 1)
+        spanish_month_name = spanish_months.get(mes)
+        
+        dias_desde_ult_riego = (hoy - ultima_fecha).days
+        
+        st.write(f"El ultimo {str_accion} de la {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
 
+    except IndexError:
+        st.write("No hay registros")
+        
+    
 
 utima_accion("Riego", "Riego")
 utima_accion("Fertilización", "Fertilización")
