@@ -59,7 +59,7 @@ calendar_output = (calendar.month(año, mes))
 #finds the first occurrence of today's date and changes its color 
 highlighted_day = calendar_output.replace(str(dia), colored_day, 1)
 
-st.write(highlighted_day)
+st.write(print(highlighted_day))
 
 
 st.write(f"{año} {mes} {dia}")
