@@ -51,6 +51,17 @@ año = first_fecha_value.year
 mes = first_fecha_value.month
 dia = first_fecha_value.day
 
+#ANSI escape sequences for colors
+colored_day = '\033[92m' + str(dia) + '\033[0m'
+
+calendar_output = (calendar.month(año, mes))
+
+#finds the first occurrence of today's date and changes its color 
+highlighted_day = calendar_output.replace(str(dia), colored_day, 1)
+
+st.write(highlighted_day)
+
+
 st.write(f"{año} {mes} {dia}")
 
 
