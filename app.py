@@ -3,10 +3,8 @@ from datetime import datetime
 import streamlit as st 
 
 
-st.set_page_config(page_title="Dashboard de Ventas",
-                    page_icon= "🍃",
-                    layout="wide")
-
+st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
+                    page_icon= "🍃")
 
 
 ############# LECTURA CSV FORMULARIO
