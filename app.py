@@ -15,6 +15,8 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Se rego?': "Riego", 
                         '¿Fertilización?' : "Fertilización"})
 
+df = pd.to_datetime(df["Fecha"])
+
 # Display the filtered DataFrame
 st.dataframe(df)
 
