@@ -30,10 +30,13 @@ st.header("Revisar")
 plantas_unique = df["Planta"].unique()
 
 for planta in plantas_unique:
-    ultima_inspeccion = df[(df["Planta"] == planta) & (df["Riego"] == "No")].sort_values(by="Fecha").head(1)
+    ultima_inspeccion = df[df["Planta"] == planta].sort_values(by="Fecha").head(1)
+    
     ultima_inspeccion_hum = ultima_inspeccion["Humedad"].iloc[0]
+    ultima_inspeccion_rieg = ultima_inspeccion["Riego"].iloc[0]
 
-    if  ultima_inspeccion_hum <= 2 :
+
+    if  (ultima_inspeccion_hum <= 2) and (ultima_inspeccion_rieg == "No"):
         st.write(f"Revisar {planta}")
 # =============================================================================
 
