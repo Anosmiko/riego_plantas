@@ -7,7 +7,7 @@ st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
                     page_icon= "🍃")
 
 st.title("Main")
-st.sidebar.succes("Seleccionar ")
+st.sidebar.success("Seleccionar ")
 
 
 ############# LECTURA CSV FORMULARIO
