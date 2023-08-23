@@ -22,7 +22,11 @@ seleccion_ultimo_riego = st.selectbox(
                                 # index=0  # Set the default index to select the first city
                             )
 
-st.dataframe(df) 
+# Filter the DataFrame based on the selected plant
+filtered_df = df[df["Planta"] == seleccion_ultimo_riego]
+
+# Display the filtered DataFrame
+st.dataframe(filtered_df)
 
 
 
