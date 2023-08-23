@@ -45,6 +45,7 @@ filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df["Riego"] == "Si"
 
 primera_fila = filtered_df.sort_values(by="Fecha").head(1)
 first_fecha_value = primera_fila["Fecha"].iloc[0]
+first_fecha_value = pd.to_datetime(first_fecha_value)
 
 año = first_fecha_value.year
 mes = first_fecha_value.month
