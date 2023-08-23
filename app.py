@@ -37,7 +37,7 @@ for planta in plantas_unique:
 
 
     if  (ultima_inspeccion_hum <= 2) and (ultima_inspeccion_rieg == "No"):
-        st.write(f"- U+2757 {planta}")
+        st.write(f"- \u2757 {planta}")
 # =============================================================================
 
 
