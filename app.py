@@ -68,7 +68,7 @@ def utima_accion(str_accion, key):
         # Se obtiene diferencia de dias desde utlimo riego
         dias_desde_ult_riego = (hoy - ultima_fecha).days
         
-        st.write(f"El ultimo {str_accion} de la {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
+        st.write(f"El ultimo {str_accion} de {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
 
     except IndexError:
         st.write("No hay registros")
