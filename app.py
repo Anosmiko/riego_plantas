@@ -13,6 +13,9 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Se rego?': "Riego", 
                         '¿Fertilización?' : "Fertilización"})
 
+# Display the filtered DataFrame
+st.dataframe(df)
+
 
 ### Vista Ultimo Riego por planta
 
@@ -42,8 +45,7 @@ first_fecha_value = primera_fila["Fecha"].iloc[0]
 
 st.write(f"{first_fecha_value}")
 
-# Display the filtered DataFrame
-# st.dataframe(filtered_df)
+
 
 
 
