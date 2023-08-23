@@ -20,6 +20,20 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
 
 
 
+
+
+# CHEQUEO PLANTAS BAJA HUMEDAD
+# =============================================================================
+plantas_unique = df["Planta"].unique()
+
+for planta in plantas_unique:
+    ultima_inspeccion = df[df["Planta"] == planta].sort_values(by="Fecha").head(1)
+    
+    if  ultima_inspeccion <= 2:
+        st.write(f"Revisar {planta}")
+# =============================================================================
+
+
 # ULTIMO RIEGO O FERTILIZACÓN PLANTA
 # =============================================================================
 
