@@ -1,6 +1,8 @@
 import pandas as pd
 from datetime import datetime
 import streamlit as st 
+import calendar
+
 
 
 st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
@@ -8,6 +10,34 @@ st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
 
 st.title("Main")
 st.sidebar.success("Seleccionar ")
+
+
+# Specify the year and month
+year = 2023
+month = 8
+
+# Create a TextCalendar instance
+cal = calendar.TextCalendar(calendar.SUNDAY)  # You can change the first weekday if desired
+
+# Get the formatted month calendar as a multiline string
+month_calendar = cal.formatmonth(year, month)
+
+# Find the position of the 22nd day in the formatted calendar
+day_position = month_calendar.find("22")
+
+# Replace only the 22nd day with a highlighted version
+highlighted_calendar = (
+    month_calendar[:day_position]
+    + "<span style='color: red; font-weight: bold;'>22</span>"
+    + month_calendar[day_position + 2 :]
+)
+
+# Create HTML content with highlighted calendar
+html_content = f"<div>{highlighted_calendar}</div>"
+
+# Render the HTML content using Streamlit
+st.write(html_content, unsafe_allow_html=True)
+
 
 
 # LECTURA CSV FORMULARIO
