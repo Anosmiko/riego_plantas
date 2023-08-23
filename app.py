@@ -15,6 +15,18 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
 
 
 ### Vista Ultimo Riego por planta
+
+# Mapping of day names in English to Spanish
+day_names_mapping = {
+    'Monday': 'Lunes',
+    'Tuesday': 'Martes',
+    'Wednesday': 'Miércoles',
+    'Thursday': 'Jueves',
+    'Friday': 'Viernes',
+    'Saturday': 'Sábado',
+    'Sunday': 'Domingo'
+}
+
 # Create a form for users to input data for the new row
 seleccion_ultimo_riego = st.selectbox(
                                 "Seleccionar Planta:",
@@ -24,9 +36,13 @@ seleccion_ultimo_riego = st.selectbox(
 
 # Filter the DataFrame based on the selected plant
 filtered_df = df[df["Planta"] == seleccion_ultimo_riego]
+primera_fila = filtered_df.sort_values(by="Fecha").head(1)
+first_fecha_value = primera_fila["Fecha"].iloc[0]
+
+st.write(f"{first_fecha_value}")
 
 # Display the filtered DataFrame
-st.dataframe(filtered_df)
+# st.dataframe(filtered_df)
 
 
 
