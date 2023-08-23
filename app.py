@@ -36,7 +36,7 @@ spanish_months = {
 # Get today's date
 hoy = datetime.today().date()
 
-def utima_accion(str_accion)
+def utima_accion(str_accion):
     # Create a form for users to input data for the new row
     seleccion_ultimo_riego = st.selectbox(
                                     "Seleccionar Planta:",
