@@ -39,12 +39,13 @@ primera_fila = filtered_df.sort_values(by="Fecha").head(1)
 ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
 ultima_fecha = ultima_fecha.date()
 
+mes = ultima_fecha.month
+dia = ultima_fecha.day
+
 dias_desde_ult_riego = (hoy - ultima_fecha).days
 
-st.write(f"El ultimo riego de la {seleccion_ultimo_riego} fue eñ {ultima_fecha}, hace {dias_desde_ult_riego} dias.")
-# año = first_fecha_value.year
-# mes = first_fecha_value.month
-# dia = first_fecha_value.day
+st.write(f"El ultimo riego de la {seleccion_ultimo_riego} fue el {dia} de {mes}, hace {dias_desde_ult_riego} dias.")
+
 
 # st.write(hoy - first_fecha_value).days()
 
