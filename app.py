@@ -12,34 +12,6 @@ st.title("Main")
 st.sidebar.success("Seleccionar ")
 
 
-# Specify the year and month
-year = 2023
-month = 8
-
-# Create a TextCalendar instance
-cal = calendar.TextCalendar(calendar.SUNDAY)  # You can change the first weekday if desired
-
-# Get the formatted month calendar as an HTML table
-month_calendar = cal.formatmonth(year, month)
-highlighted_calendar = month_calendar.replace(
-    "<td>22</td>", "<td style='color: red; font-weight: bold;'>22</td>"
-)
-
-# Create an HTML content with the highlighted calendar
-html_content = f"""
-<html>
-<head>
-</head>
-<body>
-    {highlighted_calendar}
-</body>
-</html>
-"""
-
-# Display the HTML content using Streamlit's iframe
-st.write(f"<iframe srcdoc='{html_content}' width='100%' height='600'></iframe>", unsafe_allow_html=True)
-
-
 # LECTURA CSV FORMULARIO
 # =============================================================================
 sheet_id = '1JcBYuaxBlGmuHVyi7FSaKChs8a49yeWWLA6SeZOEpXk'
