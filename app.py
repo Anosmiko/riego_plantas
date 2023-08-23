@@ -36,33 +36,36 @@ spanish_months = {
 # Get today's date
 hoy = datetime.today().date()
 
-# Create a form for users to input data for the new row
-seleccion_ultimo_riego = st.selectbox(
-                                "Seleccionar Planta:",
-                                options=df["Planta"].unique(),
-                                # index=0  # Set the default index to select the first city
-                            )
+def utima_accion(str_accion)
+    # Create a form for users to input data for the new row
+    seleccion_ultimo_riego = st.selectbox(
+                                    "Seleccionar Planta:",
+                                    options=df["Planta"].unique(),
+                                    # index=0  # Set the default index to select the first city
+                                )
+    
+    # Filter the DataFrame based on the selected plant
+    filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df[str_accion] == "Si")]
+    
+    primera_fila = filtered_df.sort_values(by="Fecha").head(1)
+    ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
+    ultima_fecha = ultima_fecha.date()
+    
+    mes = ultima_fecha.month
+    dia = ultima_fecha.day
+    
+    
+    # Get the Spanish day and month names
+    spanish_day_name = spanish_days.get(ultima_fecha.weekday() + 1)
+    spanish_month_name = spanish_months.get(mes)
+    
+    dias_desde_ult_riego = (hoy - ultima_fecha).days
+    
+    st.write(f"El ultimo {str_accion} de la {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
 
-# Filter the DataFrame based on the selected plant
-filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df["Riego"] == "Si")]
 
-primera_fila = filtered_df.sort_values(by="Fecha").head(1)
-ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
-ultima_fecha = ultima_fecha.date()
-
-mes = ultima_fecha.month
-dia = ultima_fecha.day
-
-
-# Get the Spanish day and month names
-spanish_day_name = spanish_days.get(ultima_fecha.weekday() + 1)
-spanish_month_name = spanish_months.get(mes)
-
-dias_desde_ult_riego = (hoy - ultima_fecha).days
-
-st.write(f"El ultimo riego de la {seleccion_ultimo_riego} fue el {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
-
-
+utima_accion("Riego")
+utima_accion("Fertilización")
 # st.write(hoy - first_fecha_value).days()
 
 #finds the first occurrence of today's date and changes its color 
