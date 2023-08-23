@@ -24,6 +24,9 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
 
 # CHEQUEO PLANTAS BAJA HUMEDAD
 # =============================================================================
+ # Titulo
+st.header("Revisar")
+ 
 plantas_unique = df["Planta"].unique()
 
 for planta in plantas_unique:
