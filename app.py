@@ -1,5 +1,7 @@
 import pandas as pd
 import requests
+from datetime import datetime
+import calendar
 import streamlit as st 
 
 ### LECTURA CSV FORMULARIO
@@ -43,7 +45,11 @@ filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df["Riego"] == "Si"
 primera_fila = filtered_df.sort_values(by="Fecha").head(1)
 first_fecha_value = primera_fila["Fecha"].iloc[0]
 
-st.write(f"{first_fecha_value}")
+año = first_fecha_value.year
+mes = first_fecha_value.month
+dia = first_fecha_value.day
+
+st.write(f"{año} {mes} {dia}")
 
 
 
