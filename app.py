@@ -39,11 +39,12 @@ hoy = datetime.today().date()
 def utima_accion(str_accion, key):
     # Create a form for users to input data for the new row
     seleccion_ultimo_riego = st.selectbox(
-                                    "Seleccionar Planta:",
-                                    options=df["Planta"].unique(),
-                                    # index=0  # Set the default index to select the first city
-                                )
-    
+                                            "Seleccionar Planta:",
+                                            options=df["Planta"].unique(),
+                                            key = key
+                                            # index=0  # Set the default index to select the first city
+                                        )
+            
     # Filter the DataFrame based on the selected plant
     filtered_df = df[(df["Planta"] == seleccion_ultimo_riego) & (df[str_accion] == "Si")]
     
