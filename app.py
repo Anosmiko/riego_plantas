@@ -36,7 +36,7 @@ spanish_months = {
 # Get today's date
 hoy = datetime.today().date()
 
-def utima_accion(str_accion):
+def utima_accion(str_accion, key):
     # Create a form for users to input data for the new row
     seleccion_ultimo_riego = st.selectbox(
                                     "Seleccionar Planta:",
@@ -64,8 +64,8 @@ def utima_accion(str_accion):
     st.write(f"El ultimo {str_accion} de la {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
 
 
-utima_accion("Riego")
-utima_accion("Fertilización")
+utima_accion("Riego", "Riego")
+utima_accion("Fertilización", "Fertilización")
 # st.write(hoy - first_fecha_value).days()
 
 #finds the first occurrence of today's date and changes its color 
