@@ -22,16 +22,8 @@ st.dataframe(df)
 
 ### Vista Ultimo Riego por planta
 
-# Mapping of day names in English to Spanish
-day_names_mapping = {
-    'Monday': 'Lunes',
-    'Tuesday': 'Martes',
-    'Wednesday': 'Miércoles',
-    'Thursday': 'Jueves',
-    'Friday': 'Viernes',
-    'Saturday': 'Sábado',
-    'Sunday': 'Domingo'
-}
+# Get today's date
+hoy = datetime.today().date()
 
 # Create a form for users to input data for the new row
 seleccion_ultimo_riego = st.selectbox(
@@ -51,15 +43,9 @@ año = first_fecha_value.year
 mes = first_fecha_value.month
 dia = first_fecha_value.day
 
-#ANSI escape sequences for colors
-colored_day = '\033[92m' + str(dia) + '\033[0m'
-
-calendar_output = (calendar.month(año, mes))
+st.write(hoy - first_fecha_value).days()
 
 #finds the first occurrence of today's date and changes its color 
-highlighted_day = calendar_output.replace(str(dia), colored_day, 1)
-
-st.write(print(highlighted_day))
 
 
 st.write(f"{año} {mes} {dia}")
