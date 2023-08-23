@@ -22,7 +22,7 @@ seleccion_ultimo_riego = st.selectbox(
                                 # index=0  # Set the default index to select the first city
                             )
 
-st.dataframe(df[seleccion_ultimo_riego]) 
+st.dataframe(df) 
 
 
 
