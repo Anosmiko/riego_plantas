@@ -23,6 +23,7 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Fertilización?' : "Fertilización"})
 
 df = df.sort_values(by="Fecha", ascending=False)
+df.reset_index(inplace=True)
 
 
 # =============================================================================
