@@ -1,15 +1,13 @@
 import pandas as pd
 from datetime import datetime
 import streamlit as st 
-import calendar
-
 
 
 st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
                     page_icon= "🍃")
 
 st.title("Main")
-st.sidebar.success("Seleccionar ")
+# st.sidebar.success("Seleccionar ")
 
 
 # LECTURA CSV FORMULARIO
