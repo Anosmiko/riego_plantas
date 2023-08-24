@@ -42,7 +42,7 @@ spanish_months = {
     7: "julio", 8: "agosto", 9: "septiembre", 10: "octubre", 11: "noviembre", 12: "diciembre"
 }
 
-def utima_accion(str_accion, key):
+def utima_accion(str_accion):
     # Titulo
     st.header(str_accion)
     
@@ -50,7 +50,7 @@ def utima_accion(str_accion, key):
     seleccion_ultimo_riego = st.selectbox(
                                             "Seleccionar Planta:",
                                             options=df["Planta"].unique(),
-                                            key = key
+                                            key = str_accion
                                         )
 
     # Se filtra df segun seleccion
@@ -76,15 +76,18 @@ def utima_accion(str_accion, key):
         # Se obtiene diferencia de dias desde utlimo riego
         dias_desde_ult_riego = (hoy - ultima_fecha).days
         
-        st.write(f"El ultimo {str_accion} de {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
-
+        if str_accion == "Riego":
+            st.write(f"El ultimo riego de {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
+        else:
+            st.write(f"La ultima fertilización de {seleccion_ultimo_riego} fue el dia {spanish_day_name} {dia} de {spanish_month_name}, hace {dias_desde_ult_riego} dias.")
+            
     except IndexError:
         st.write("No hay registros")
         
     
 
-utima_accion("Riego", "Riego")
-utima_accion("Fertilización", "Fertilización")
+utima_accion("Riego")
+utima_accion("Fertilización")
 
 # =============================================================================
 
