@@ -22,7 +22,7 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Se rego?': "Riego", 
                         '¿Fertilización?' : "Fertilización"})
 
-date_format = "%d-%m-%Y"
+date_format = "%d/%m/%Y"
 
 df["Fecha"] = pd.to_datetime(df['Fecha'], format=date_format)
 
