@@ -22,6 +22,10 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Se rego?': "Riego", 
                         '¿Fertilización?' : "Fertilización"})
 
+date_format = "%d-%m-%Y"
+
+df["Fecha"] = pd.to_datetime(df['Fecha'], format=date_format)
+
 # =============================================================================
 
 
@@ -59,7 +63,7 @@ def utima_accion(str_accion):
     
     try:
         # Se obtiene fecha del ultimo riego o fertilizacipon de la planta
-        ultima_fecha = pd.to_datetime(primera_fila["Fecha"].iloc[0])
+        ultima_fecha = primera_fila["Fecha"].iloc[0]
         ultima_fecha = ultima_fecha.date()
         
         mes = ultima_fecha.month
