@@ -78,11 +78,11 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
         
         if accion == "Riego":
             st.subheader('RIEGO')
-            st.write(f"El ultimo riego de <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}, hace  <b>{dias_desde_ult_riego} dias.</b>", unsafe_allow_html=True)
+            st.write(f"El ultimo riego de <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}</b>, hace  <b>{dias_desde_ult_riego} dias.</b>", unsafe_allow_html=True)
             
         elif accion == "Insecticida":
             st.subheader('INSECTICIDA')
-            st.write(f"La ultima aplicacion de Asedio en <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}, hace  <b>{dias_desde_ult_riego} dias.</b>" , unsafe_allow_html=True)
+            st.write(f"La ultima aplicacion de Asedio en <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}</b>, hace  <b>{dias_desde_ult_riego} dias.</b>" , unsafe_allow_html=True)
             
         elif accion == "Fertilización":
             st.subheader('FERTILIZACIÓN')
