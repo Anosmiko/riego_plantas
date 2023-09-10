@@ -50,7 +50,7 @@ spanish_months = {
 
 seleccion_planta = st.selectbox(
                                         "Seleccionar Planta:",
-                                        options=df["Planta"].unique(),
+                                        options= sorted(df["Planta"].unique()),
                                         key = "planta"
                                     )
 
