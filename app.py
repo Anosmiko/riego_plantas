@@ -86,7 +86,7 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
             
         elif accion == "Fertilización":
             st.subheader('FERTILIZACIÓN')
-            st.write(f"La última fertilización de <b>{seleccion_planta}</b> fue el día <b>{spanish_day_name}{dia} de {spanish_month_name}</b> , hace  <b>{dias_desde_ult_riego} días.</b>", unsafe_allow_html=True)
+            st.write(f"La última fertilización de <b>{seleccion_planta}</b> fue el día <b>{spanish_day_name} {dia} de {spanish_month_name}</b> , hace  <b>{dias_desde_ult_riego} días.</b>", unsafe_allow_html=True)
 
             
     except IndexError:
