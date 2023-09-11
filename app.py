@@ -97,7 +97,7 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
 for accion in acciones:
     # Ultimo 
     ultima_accion = df["Fecha"][(df["Planta"] == seleccion_planta) & (df[accion] == "Si")]   
-    ultima_accion = ultima_accion.sort_values().head(1)
+    ultima_accion = ultima_accion.sort_values(ascending=False).head(1)
     
     try:
         print_info(seleccion_planta, ultima_accion, accion)
