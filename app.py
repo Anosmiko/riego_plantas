@@ -90,7 +90,7 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
 
             
     except IndexError:
-        # st.write("No hay registros")
+        st.write("No hay registros")
         pass
 
 
