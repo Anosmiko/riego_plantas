@@ -90,20 +90,20 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
 
             
     except IndexError:
-	if accion == "Riego":
+    	if accion == "Riego":
             st.subheader('💧 RIEGO')
-      	    st.write("No hay registros")
-
-	elif accion == "Insecticida":
+            st.write("No hay registros")
+    
+    	elif accion == "Insecticida":
             st.subheader('🐛 INSECTICIDA')
-      	    st.write("No hay registros")
-	
-	elif accion == "Fertilización":
+            st.write("No hay registros")
+    	
+    	elif accion == "Fertilización":
             st.subheader('🧪 FERTILIZACIÓN')
-	    st.write("No hay registros")
+            st.write("No hay registros")
 
 
-        pass
+        # pass
 
 
 for accion in acciones:
