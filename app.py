@@ -7,9 +7,6 @@ st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
                     page_icon= "🍃")
 
 
-# st.sidebar.success("Seleccionar ")
-
-
 # LECTURA CSV FORMULARIO
 # =============================================================================
 sheet_id = '1JcBYuaxBlGmuHVyi7FSaKChs8a49yeWWLA6SeZOEpXk'
@@ -67,7 +64,6 @@ def conteo_dias_aplicacion(str_accion):
     
     # Se obtiene diferencia de dias desde utlimo riego
     dias_desde_ult_riego = (hoy - ultima_fecha).days        
-    # st.write(f"Hace <b>{dias_desde_ult_riego}</b> días", unsafe_allow_html=True)
     
     return dias_desde_ult_riego
         
@@ -75,12 +71,6 @@ def conteo_dias_aplicacion(str_accion):
 st.title("Revisíon")
             
 col1, col2, col3 = st.columns(3)
-
-
-
-# col1.metric("Temperature", "70 °F", "1.2 °F")
-# col2.metric("Wind", "9 mph", "-8%")
-# col3.metric("Humidity", "86%", "4%")
 
 with col1:
    col1.metric("Asedio", f"{conteo_dias_aplicacion(str_aplicaciones[0])} días")
@@ -121,11 +111,7 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
         if accion == "Riego":
             st.subheader('💧 RIEGO')
             st.write(f"El ultimo riego de <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}</b>, hace  <b>{dias_desde_ult_riego} dias.</b>", unsafe_allow_html=True)
-            
-        # elif accion == "Insecticida":
-        #     st.subheader('🐛 INSECTICIDA')
-        #     st.write(f"La ultima aplicacion de Asedio en <b>{seleccion_planta}</b> fue el dia  <b>{spanish_day_name} {dia} de {spanish_month_name}</b>, hace  <b>{dias_desde_ult_riego} dias.</b>" , unsafe_allow_html=True)
-            
+   
         elif accion == "Fertilización":
             st.subheader('🧪 FERTILIZACIÓN')
             st.write(f"La última fertilización de <b>{seleccion_planta}</b> fue el día <b>{spanish_day_name} {dia} de {spanish_month_name}</b> , hace  <b>{dias_desde_ult_riego} días.</b>", unsafe_allow_html=True)
@@ -136,24 +122,14 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
             st.subheader('💧 RIEGO')
             st.write("No hay registros")
     
-    	# elif accion == "Insecticida":
-     #        st.subheader('🐛 INSECTICIDA')
-     #        st.write("No hay registros")
     	
     	elif accion == "Fertilización":
             st.subheader('🧪 FERTILIZACIÓN')
             st.write("No hay registros")
-
-
-        # pass
-
-
+            
 
 # B) REVISION PLANTA
 with st.container():
-
-    
-
     
     opciones_sin_aplicacion = pd.Series(df["Planta"].unique())
     opciones_sin_aplicacion = opciones_sin_aplicacion[~opciones_sin_aplicacion.isin(str_aplicaciones)]
@@ -177,6 +153,3 @@ with st.container():
             print_info(seleccion_planta, ultima_accion, accion)
         except IndexError:
             st.write("No hay registros")
-        
-
-
