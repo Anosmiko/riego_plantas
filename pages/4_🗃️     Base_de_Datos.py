@@ -20,7 +20,8 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Se rego?': "Riego", 
                         '¿Fertilización?' : "Fertilización"})
 
+
 # =============================================================================
 
-
+df = df.sort_values(by="Fecha", ascending=False)
 st.dataframe(df)
