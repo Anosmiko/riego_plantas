@@ -21,7 +21,12 @@ df = df.rename(columns={'Ingresar Planta': 'Planta',
                         '¿Fertilización?' : "Fertilización"})
 
 
+date_format = "%d/%m/%Y"
+
+df["Fecha"] = pd.to_datetime(df['Fecha'], format=date_format)
+df = df.sort_values(by="Fecha", ascending=False)
+
 # =============================================================================
 
-df = df.sort_values(by="Fecha", ascending=False)
+
 st.dataframe(df)
