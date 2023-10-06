@@ -16,7 +16,8 @@ df = pd.read_csv(url, usecols=[ 'Ingresar Planta', 'Ingresar Fecha', '¿Se rego?
 df = df.rename(columns={'Ingresar Planta': 'Planta',
                         'Ingresar Fecha': "Fecha",
                         '¿Se rego?': "Riego", 
-                        '¿Fertilización?' : "Fertilización")
+                        '¿Fertilización?' : "Fertilización"}
+		)
 
 
 date_format = "%d/%m/%Y"
