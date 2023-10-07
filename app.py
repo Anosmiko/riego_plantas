@@ -50,6 +50,7 @@ str_aplicaciones = ["Aplicación Asedio",
 
 
 # A) REVISION APLICACIONES SPRAY
+# =============================================================================
 def conteo_dias_aplicacion(str_accion):
     ultima_aplicacion =  df["Fecha"][df["Planta"] == str_accion]
     ultima_aplicacion =  ultima_aplicacion.sort_values(ascending=False).head(1)
@@ -81,10 +82,26 @@ with col3:
    col3.metric("Fert. Spray", f"{conteo_dias_aplicacion(str_aplicaciones[2])} días")
 
 st.divider()   
+# =============================================================================
 
 
+# B) UTIMOS RIEGOS
 
-# B) REVISION PLANTA
+# =============================================================================
+st.title("Ultimos Riegos")
+
+df_ultimos = df.sort_values(by="Fecha", ascending=False).head(5)
+
+st.dataframe(df_ultimos)
+
+st.divider()   
+
+# =============================================================================
+
+
+# C) REVISION PLANTA
+# =============================================================================
+
 st.title("Revisión por Planta")
 
 
