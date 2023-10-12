@@ -90,13 +90,16 @@ st.divider()
 # =============================================================================
 st.title("Ultimos Riegos")
 
-df_ultimos = df.sort_values(by="Fecha", ascending=False).head(5)
+df_ultimos = df[~df.Planta.isin(str_aplicaciones)]
+df_ultimos = df_ultimos.sort_values(by="Fecha", ascending=False).head(5)
 
 st.dataframe(df_ultimos)
 
 st.divider()   
 
 # =============================================================================
+
+
 
 
 # C) REVISION PLANTA
