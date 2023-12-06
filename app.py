@@ -12,11 +12,12 @@ st.set_page_config(page_title="Riego y Fertilizacion de Plantas",
 sheet_id = '1JcBYuaxBlGmuHVyi7FSaKChs8a49yeWWLA6SeZOEpXk'
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
 
-df = pd.read_csv(url, usecols=[ 'Ingresar Planta', 'Ingresar Fecha', '¿Se rego?', '¿Fertilización?'])
+df = pd.read_csv(url, usecols=[ 'Ingresar Planta', 'Ingresar Fecha', '¿Se rego?', '¿Fertilización?', '¿Nuba?'])
 df = df.rename(columns={'Ingresar Planta': 'Planta',
                         'Ingresar Fecha': "Fecha",
                         '¿Se rego?': "Riego", 
-                        '¿Fertilización?' : "Fertilización"}
+                        '¿Fertilización?' : "Fertilización",
+                        '¿Nuba?': "Nuba"}
 		)
 
 
@@ -134,19 +135,27 @@ def print_info(seleccion_planta, ultima_fecha_accion, accion):
         elif accion == "Fertilización":
             st.subheader('🧪 FERTILIZACIÓN')
             st.write(f"La última fertilización de <b>{seleccion_planta}</b> fue el día <b>{spanish_day_name} {dia} de {spanish_month_name}</b> , hace  <b>{dias_desde_ult_riego} días.</b>", unsafe_allow_html=True)
+            
+        elif accion == "Nuba":
+            st.subheader('🦠 NUBA')
+            st.write(f"La última aplicación Nuba en <b>{seleccion_planta}</b> fue el día <b>{spanish_day_name} {dia} de {spanish_month_name}</b> , hace  <b>{dias_desde_ult_riego} días.</b>", unsafe_allow_html=True)
 
             
     except IndexError:
-    	if accion == "Riego":
+        if accion == "Riego":
             st.subheader('💧 RIEGO')
             st.write("No hay registros")
-    
-    	
-    	elif accion == "Fertilización":
-            st.subheader('🧪 FERTILIZACIÓN')
+       
+       	elif accion == "Fertilización":
+               st.subheader('🧪 FERTILIZACIÓN')
+               st.write("No hay registros")
+        
+        elif accion == "Nuba":
+            st.subheader('🦠 NUBA')
             st.write("No hay registros")
+                        
+        
             
-
 # B) REVISION PLANTA
 with st.container():
     
@@ -161,7 +170,7 @@ with st.container():
                                         )
     
     
-    acciones = ["Riego", "Fertilización"]
+    acciones = ["Riego", "Fertilización", "Nuba"]
     
     for accion in acciones:
         # Ultimo 
